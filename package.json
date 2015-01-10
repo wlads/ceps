@@ -1,0 +1,29 @@
+{
+  "author": "Talles L <talleslasmar@gmail.com>",
+  "bin": "./bin/ceps.js",
+  "bugs": {
+    "url": "https://github.com/tallesl/ceps/issues"
+  },
+  "description": "Brazil's CEP as a service",
+  "homepage": "https://github.com/tallesl/ceps",
+  "keywords": [
+    "brazil",
+    "brasil",
+    "cep",
+    "zip",
+    "endereço",
+    "address",
+    "correios"
+  ],
+  "license": "Fair",
+  "main": "bin/ceps.js",
+  "name": "ceps",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tallesl/ceps.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "1.0.0"
+}
