@@ -4,7 +4,14 @@
   "bugs": {
     "url": "https://github.com/tallesl/ceps/issues"
   },
+  "dependencies": {
+    "cheerio": "^0.18.0"
+  },
   "description": "Brazil's CEP as a service",
+  "directories": {
+    "lib": "./lib",
+    "test": "./test"
+  },
   "homepage": "https://github.com/tallesl/ceps",
   "keywords": [
     "brazil",
