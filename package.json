@@ -8,6 +8,9 @@
     "cheerio": "^0.18.0"
   },
   "description": "Brazil's CEP as a service",
+  "devDependencies": {
+    "mocha": "^2.1.0"
+  },
   "directories": {
     "lib": "./lib",
     "test": "./test"
@@ -30,7 +33,7 @@
     "url": "https://github.com/tallesl/ceps.git"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha --recursive"
   },
   "version": "1.0.0"
 }
