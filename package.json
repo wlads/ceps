@@ -5,7 +5,8 @@
     "url": "https://github.com/tallesl/ceps/issues"
   },
   "dependencies": {
-    "cheerio": "^0.18.0"
+    "cheerio": "^0.18.0",
+    "mongodb": "^1.4.28"
   },
   "description": "Brazil's CEP as a service",
   "devDependencies": {
