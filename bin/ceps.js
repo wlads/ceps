@@ -55,7 +55,7 @@ mongo.connect(function (err, db) {
   app.get('/', redirectToGitHub)
   app.get('/:cep', serveCep)
   app.disable('x-powered-by')
-  app.listen(80)
+  app.listen(process.env.PORT || 80)
 })
 
 function redirectToGitHub (req, res) {
