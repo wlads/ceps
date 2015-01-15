@@ -2,7 +2,12 @@
 
 var express         = require('express')
   , mongo           = require('../lib/mongo')
+  , configuration   = require('../lib/configuration')
   , correiosCrawler = require('../lib/correios-crawler')
+
+// forcing environment variables check on start
+configuration.connectionString()
+configuration.secret()
 
 mongo.connect(function (err, db) {
   if (err) throw err
@@ -12,6 +17,9 @@ mongo.connect(function (err, db) {
 
     // retrieving the given cep from the database
     mongo.retrieve(db, cep, function (err, endereco) {
+
+      // if there's an error with the secret header
+      if (endedRequestDueAuthorization(res, res)) return
 
       // if there's an error retrieving
       if (endedRequestDueError(err, res)) return
@@ -39,6 +47,7 @@ mongo.connect(function (err, db) {
 
       // no need to crawl, responds it
       } else respond(endereco, res)
+
     })
   }
 
@@ -58,6 +67,16 @@ function respond (endereco, res) {
   res.json(endereco)
 }
 
+function endedRequestDueAuthorization (req, res) {
+  if (!req.headers || !req.headers.Secret) {
+    res.sendStatus(400)
+    return true
+  } else if (req.headers.Secret !== configuration.secret()) {
+    res.sendStatus(403)
+    return true
+  } else return false
+}
+
 // something bad happened
 function endedRequestDueError (err, res) {
   if (err) {
@@ -66,7 +85,7 @@ function endedRequestDueError (err, res) {
     console.error(err)
 
     // and responds 500
-    res.send(500)
+    res.sendStatus(500)
 
     return true
   } else return false
