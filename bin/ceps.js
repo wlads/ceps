@@ -70,10 +70,10 @@ function respond (endereco, res) {
 }
 
 function endedRequestDueAuthorization (req, res) {
-  if (!req.headers || !req.headers.Secret) {
+  if (!req.headers || !req.headers.secret) {
     res.sendStatus(400)
     return true
-  } else if (req.headers.Secret !== configuration.secret()) {
+  } else if (req.headers.secret !== configuration.secret()) {
     res.sendStatus(403)
     return true
   } else return false
