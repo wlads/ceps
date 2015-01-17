@@ -19,7 +19,7 @@ mongo.connect(function (err, db) {
     mongo.retrieve(db, cep, function (err, endereco) {
 
       // if there's an error with the secret header
-      if (endedRequestDueAuthorization(res, res)) return
+      if (endedRequestDueAuthorization(req, res)) return
 
       // if there's an error retrieving
       if (endedRequestDueError(err, res)) return
