@@ -93,11 +93,9 @@ function endedRequestDueError (err, res) {
   } else return false
 }
 
+// if the document is older than an month it 'needs new'
 function needsNew (endereco) {
-  var date = mongo.documentDate(endereco)
-
-  // if the document is older than an month it 'needs new'
-  date.setMonth(date.getMonth() + 1)
-
-  return date < new Date()
+  var date = new Date()
+  date.setMonth(-1)
+  return date > endereco.data
 }
