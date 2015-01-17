@@ -2,6 +2,7 @@
 
 var express         = require('express')
   , mongo           = require('../lib/mongo')
+  , morgan          = require('morgan')
   , configuration   = require('../lib/configuration')
   , correiosCrawler = require('../lib/correios-crawler')
 
@@ -52,6 +53,7 @@ mongo.connect(function (err, db) {
   }
 
   var app = express()
+  app.use(morgan('short'))
   app.get('/', redirectToGitHub)
   app.get('/:cep', serveCep)
   app.disable('x-powered-by')
