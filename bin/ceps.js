@@ -73,6 +73,7 @@ function redirectToGitHub (req, res) {
 
 function respond (endereco, res) {
   delete endereco._id
+  delete endereco.data
   res.json(endereco)
 }
 
