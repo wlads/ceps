@@ -20,10 +20,10 @@ mongo.connect(function (err, db) {
     mongo.retrieve(db, cep, function (err, endereco) {
 
       // if there's an error with the secret header
-      if (endedRequestDueAuthorization(req, res)) return
+      if (badAuth(req, res)) return
 
       // if there's an error retrieving
-      if (endedRequestDueError(err, res)) return
+      if (internalError(err, res)) return
 
       // if there's no address in the database or if it's an old document
       if (!endereco || needsNew(endereco)) {
@@ -32,13 +32,13 @@ mongo.connect(function (err, db) {
         correiosCrawler(cep, function (err, endereco) {
 
           // if there's an error crawling Correios' website
-          if (endedRequestDueError(err, res)) return
+          if (internalError(err, res)) return
 
           // upserts
           mongo.upsert(db, endereco, function (err) {
 
             // if there's an error upserting
-            if (endedRequestDueError(err, res)) return
+            if (internalError(err, res)) return
 
             // finally, after crawled and update in database, responds it
             respond(endereco, res)
@@ -69,7 +69,7 @@ function respond (endereco, res) {
   res.json(endereco)
 }
 
-function endedRequestDueAuthorization (req, res) {
+function badAuth (req, res) {
   if (!req.headers || !req.headers.secret) {
     res.sendStatus(400)
     return true
@@ -80,7 +80,7 @@ function endedRequestDueAuthorization (req, res) {
 }
 
 // something bad happened
-function endedRequestDueError (err, res) {
+function internalError (err, res) {
   if (err) {
 
     // logs the error to stderr
