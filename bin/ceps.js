@@ -1,10 +1,11 @@
 #! /usr/bin/env node
 
-var express         = require('express')
+var configuration   = require('../lib/configuration')
+  , correiosCrawler = require('../lib/correios-crawler')
+  , express         = require('express')
   , mongo           = require('../lib/mongo')
   , morgan          = require('morgan')
-  , configuration   = require('../lib/configuration')
-  , correiosCrawler = require('../lib/correios-crawler')
+  , sanitizeCep     = require('sanitize-cep')
 
 // forcing environment variables check on start
 configuration.connectionString()
@@ -14,7 +15,10 @@ mongo.connect(function (err, db) {
   if (err) throw err
 
   function serveCep (req, res) {
-    var cep = req.params.cep
+    var cep = sanitizeCep(req.params.cep)
+
+    // if the cep is malformed
+    if (badCep(cep, res)) return
 
     // retrieving the given cep from the database
     mongo.retrieve(db, cep, function (err, endereco) {
@@ -69,6 +73,14 @@ function respond (endereco, res) {
   res.json(endereco)
 }
 
+function badCep (cep, res) {
+  if (cep) return false
+  else {
+    res.sendStatus(400)
+    return true
+  }
+}
+
 function badAuth (req, res) {
   if (!req.headers || !req.headers.secret) {
     res.sendStatus(400)
@@ -99,3 +111,4 @@ function needsNew (endereco) {
   date.setMonth(-1)
   return date > endereco.data
 }
+

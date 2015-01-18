@@ -43,12 +43,12 @@ For instance, a `GET` to `/30130010` may return:
     "cep": "30130010",
     "logradouro": "Praça Sete de Setembro",
     "bairro": "Centro",
-    "municipio": "Belo Horizonte",
+    "localidade": "Belo Horizonte",
     "uf": "MG"
 }
 ```
 
-[400](http://en.wikipedia.org/wiki/List_of_HTTP_status_codes#400) means that the required `Secret` header wasn't passed. [403](http://en.wikipedia.org/wiki/List_of_HTTP_status_codes#403) means that a wrong `Secret` was passed. [500](http://en.wikipedia.org/wiki/List_of_HTTP_status_codes#500) means that something bad happened at the server side.
+[400](http://en.wikipedia.org/wiki/List_of_HTTP_status_codes#400) means that the given CEP was malformed or that the required `Secret` header wasn't passed. [403](http://en.wikipedia.org/wiki/List_of_HTTP_status_codes#403) means that a wrong `Secret` was passed. [500](http://en.wikipedia.org/wiki/List_of_HTTP_status_codes#500) means that something bad happened at the server side.
 
 And, of course, [200](http://en.wikipedia.org/wiki/List_of_HTTP_status_codes#200) if everything went smoothly.
 
