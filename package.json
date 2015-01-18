@@ -2,7 +2,7 @@
   "author": "Talles L <talleslasmar@gmail.com>",
   "bin": "./bin/ceps.js",
   "bugs": {
-    "url": "https://github.com/tallesl/ceps/issues"
+    "url": "https://github.com/codigonosso/ceps/issues"
   },
   "dependencies": {
     "cheerio": "^0.18.0",
@@ -21,7 +21,7 @@
     "lib": "./lib",
     "test": "./test"
   },
-  "homepage": "https://github.com/tallesl/ceps",
+  "homepage": "https://github.com/codigonosso/ceps",
   "keywords": [
     "brazil",
     "brasil",
@@ -37,10 +37,10 @@
   "preferGlobal": true,
   "repository": {
     "type": "git",
-    "url": "https://github.com/tallesl/ceps.git"
+    "url": "https://github.com/codigonosso/ceps.git"
   },
   "scripts": {
     "test": "mocha --recursive"
   },
-  "version": "1.0.0"
+  "version": "1.0.1"
 }

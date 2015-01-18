@@ -6,10 +6,10 @@
 
 # ceps
 
-[![build](https://travis-ci.org/tallesl/ceps.png)](https://travis-ci.org/tallesl/ceps)
-[![coverage](https://coveralls.io/repos/tallesl/ceps/badge.png?branch=master)](https://coveralls.io/r/tallesl/ceps?branch=master)
-[![dependencies](https://david-dm.org/tallesl/ceps.png)](https://david-dm.org/tallesl/ceps)
-[![devDependencies](https://david-dm.org/tallesl/ceps/dev-status.png)](https://david-dm.org/tallesl/ceps#info=devDependencies)
+[![build](https://travis-ci.org/codigonosso/ceps.png)](https://travis-ci.org/codigonosso/ceps)
+[![coverage](https://coveralls.io/repos/codigonosso/ceps/badge.png?branch=master)](https://coveralls.io/r/codigonosso/ceps?branch=master)
+[![dependencies](https://david-dm.org/codigonosso/ceps.png)](https://david-dm.org/codigonosso/ceps)
+[![devDependencies](https://david-dm.org/codigonosso/ceps/dev-status.png)](https://david-dm.org/codigonosso/ceps#info=devDependencies)
 [![npm module](https://badge.fury.io/js/ceps.png)](http://badge.fury.io/js/ceps)
 
 [![npm](https://nodei.co/npm/ceps.png?mini=true)](https://nodei.co/npm/ceps/)
