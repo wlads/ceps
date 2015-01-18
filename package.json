@@ -33,6 +33,7 @@
   "license": "Fair",
   "main": "bin/ceps.js",
   "name": "ceps",
+  "preferGlobal": true,
   "repository": {
     "type": "git",
     "url": "https://github.com/tallesl/ceps.git"
