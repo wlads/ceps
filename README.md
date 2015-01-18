@@ -8,6 +8,11 @@
 
 [![build](https://travis-ci.org/tallesl/ceps.png)](https://travis-ci.org/tallesl/ceps)
 [![coverage](https://coveralls.io/repos/tallesl/ceps/badge.png?branch=master)](https://coveralls.io/r/tallesl/ceps?branch=master)
+[![dependencies](https://david-dm.org/tallesl/ceps.png)](https://david-dm.org/tallesl/ceps)
+[![devDependencies](https://david-dm.org/tallesl/ceps/dev-status.png)](https://david-dm.org/tallesl/ceps#info=devDependencies)
+[![npm module](https://badge.fury.io/js/ceps.png)](http://badge.fury.io/js/ceps)
+
+[![npm](https://nodei.co/npm/ceps.png?mini=true)](https://nodei.co/npm/ceps/)
 
 A (web) service that exposes [Correios'](http://pt.wikipedia.org/wiki/Empresa_Brasileira_de_Correios_e_Tel%C3%A9grafos) individual [CEP](http://en.wikipedia.org/wiki/C%C3%B3digo_de_Endere%C3%A7amento_Postal) search page as a consumable API.
 
