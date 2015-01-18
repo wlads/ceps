@@ -16,8 +16,6 @@
 
 A (web) service that exposes [Correios'](http://pt.wikipedia.org/wiki/Empresa_Brasileira_de_Correios_e_Tel%C3%A9grafos) individual [CEP](http://en.wikipedia.org/wiki/C%C3%B3digo_de_Endere%C3%A7amento_Postal) search page as a consumable API.
 
-This is the API that we ~~want~~ need but [it doesn't existed](#correios-criticism).
-
 ## *stack*
 
 [cheerio](https://github.com/cheeriojs/cheerio) for crawling, [Express](http://expressjs.com) for HTTP and [MongoDB](http://mongodb.org) for database.
@@ -27,14 +25,14 @@ This is the API that we ~~want~~ need but [it doesn't existed](#correios-critici
 `npm install -g` it, configure a couple env vars (see below), and call it.
 That's it.
 
-Ah, and since it listens on port 80, you may need to run it with [super cow powers](http://en.wikipedia.org/wiki/Superuser).
-
 ## Environment variables
 
 There are two mandatory environment variables to set:
 
 * `CEPS_CONNECTIONSTRING`: [a MongoDB connection string](http://docs.mongodb.org/manual/reference/connection-string/);
 * `CEPS_SECRET`: an arbitrary string used as password.
+
+There's an optional `PORT` var too. Assumes `80` if none is specified (may need [super cow powers](http://en.wikipedia.org/wiki/Superuser)).
 
 ## Requesting
 
@@ -53,7 +51,9 @@ For instance, a `GET` to `/30130010` may return:
 }
 ```
 
-[400](http://en.wikipedia.org/wiki/List_of_HTTP_status_codes#400) means that the given CEP was malformed or that the required `Secret` header wasn't passed. [403](http://en.wikipedia.org/wiki/List_of_HTTP_status_codes#403) means that a wrong `Secret` was passed. [500](http://en.wikipedia.org/wiki/List_of_HTTP_status_codes#500) means that something bad happened at the server side.
+[400](http://en.wikipedia.org/wiki/List_of_HTTP_status_codes#400) means that the given CEP was malformed or that the required `Secret` header wasn't passed.
+[403](http://en.wikipedia.org/wiki/List_of_HTTP_status_codes#403) means that a wrong `Secret` was passed.
+[500](http://en.wikipedia.org/wiki/List_of_HTTP_status_codes#500) means that something bad happened at the server side.
 
 And, of course, [200](http://en.wikipedia.org/wiki/List_of_HTTP_status_codes#200) if everything went smoothly.
 [204](http://en.wikipedia.org/wiki/List_of_HTTP_status_codes#204) if the request was OK but nothing was found for the given CEP.
