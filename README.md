@@ -14,6 +14,8 @@
 
 [![npm](https://nodei.co/npm/ceps.png?mini=true)](https://nodei.co/npm/ceps/)
 
+[Fala português?](/README.pt-BR.md)
+
 A (web) service that exposes [Correios'](http://pt.wikipedia.org/wiki/Empresa_Brasileira_de_Correios_e_Tel%C3%A9grafos) individual [CEP](http://en.wikipedia.org/wiki/C%C3%B3digo_de_Endere%C3%A7amento_Postal) search page as a consumable API.
 
 ## *stack*
