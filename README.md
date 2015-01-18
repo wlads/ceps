@@ -51,6 +51,7 @@ For instance, a `GET` to `/30130010` may return:
 [400](http://en.wikipedia.org/wiki/List_of_HTTP_status_codes#400) means that the given CEP was malformed or that the required `Secret` header wasn't passed. [403](http://en.wikipedia.org/wiki/List_of_HTTP_status_codes#403) means that a wrong `Secret` was passed. [500](http://en.wikipedia.org/wiki/List_of_HTTP_status_codes#500) means that something bad happened at the server side.
 
 And, of course, [200](http://en.wikipedia.org/wiki/List_of_HTTP_status_codes#200) if everything went smoothly.
+[204](http://en.wikipedia.org/wiki/List_of_HTTP_status_codes#204) if the request was OK but nothing was found for the given CEP.
 
 ## How it works
 
@@ -67,3 +68,4 @@ If there isn't such address or if it's more than a month old, crawls a fresh one
 * There is no device for impeding a *non-human* access (such as a CAPTCHA);
 * We don't bulk request (a single request here is a single request there);
 * We avoid requesting if possible (we only crawl month old records, else we just use our database).
+

@@ -38,6 +38,9 @@ mongo.connect(function (err, db) {
           // if there's an error crawling Correios' website
           if (internalError(err, res)) return
 
+          // if not found
+          if (notFound(endereco, res)) return
+
           // upserts
           mongo.upsert(db, endereco, function (err) {
 
@@ -103,6 +106,14 @@ function internalError (err, res) {
 
     return true
   } else return false
+}
+
+function notFound (endereco, res) {
+  if (endereco) return false
+  else {
+    res.sendStatus(204)
+    return true
+  }
 }
 
 // if the document is older than an month it 'needs new'
