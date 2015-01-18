@@ -1,4 +1,4 @@
-var assert = require('assert')
+var assert  = require('assert')
   , crawler = require('../../lib/correios/crawler.js')
 
 describe('./lib/correios/crawler', function () {
@@ -27,7 +27,7 @@ describe('./lib/correios/crawler', function () {
 <div class="caixacampobranco">\
     <span class="resposta">Logradouro: </span>\
     <span class="respostadestaque">\
-        Pra�a Sete de Setembro\
+        Praça Sete de Setembro\
         \
     </span><br/>\
     <span class="resposta">Bairro: </span><span class="respostadestaque">Centro</span><br/>\
@@ -61,7 +61,7 @@ describe('./lib/correios/crawler', function () {
 <div class="caixacampobranco">\
     <span class="resposta">Logradouro: </span>\
     <span>\
-        Pra�a Sete de Setembro\
+        Praça Sete de Setembro\
         \
     </span><br/>\
     <span class="resposta">Bairro: </span><span>Centro</span><br/>\
@@ -95,7 +95,7 @@ describe('./lib/correios/crawler', function () {
 <div class="caixacampobranco">\
     <span class="resposta">Logradouro: </span>\
     <span class="respostadestaque">\
-        Pra�a Sete de Setembro\
+        Praça Sete de Setembro\
         \
     </span><br/>\
     <span class="resposta">Bairro: </span><span class="respostadestaque">Centro</span><br/>\
@@ -129,7 +129,7 @@ describe('./lib/correios/crawler', function () {
 <div class="caixacampobranco">\
     <span class="resposta">Logradouro: </span>\
     <span class="respostadestaque">\
-        Pra�a Sete de Setembro\
+        Praça Sete de Setembro\
         \
     </span><br/>\
     <span class="resposta">Bairro: </span><span class="respostadestaque">Centro</span><br/>\
@@ -163,7 +163,7 @@ describe('./lib/correios/crawler', function () {
 <div class="caixacampobranco">\
     <span class="resposta">Logradouro: </span>\
     <span class="respostadestaque">\
-        Pra�a Sete de Setembro\
+        Praça Sete de Setembro\
         \
     </span><br/>\
     <span class="resposta">Localidade / UF: </span>\
@@ -196,7 +196,7 @@ describe('./lib/correios/crawler', function () {
 <div class="caixacampobranco">\
     <span class="resposta">Logradouro: </span>\
     <span class="respostadestaque">\
-        Pra�a Sete de Setembro\
+        Praça Sete de Setembro\
         \
     </span><br/>\
     <span class="resposta">Bairro: </span><span class="respostadestaque">Centro</span><br/>\
@@ -222,3 +222,4 @@ describe('./lib/correios/crawler', function () {
 
   })
 })
+
