@@ -20,7 +20,7 @@ A (web) service that exposes [Correios'](http://pt.wikipedia.org/wiki/Empresa_Br
 
 ## *stack*
 
-[cheerio](https://github.com/cheeriojs/cheerio) for crawling, [Express](http://expressjs.com) for HTTP and [MongoDB](http://mongodb.org) for database.
+[cheerio](https://github.com/cheeriojs/cheerio) for scraping, [Express](http://expressjs.com) for HTTP and [MongoDB](http://mongodb.org) for database.
 
 ## Running it
 
@@ -67,12 +67,12 @@ When a request is made, the service retrieves from the database the address info
 If the address exists in the database and if the record isn't a month old, responds it.
 End of the request.
 
-If there isn't such address or if it's more than a month old, crawls a fresh one from Correios website, saves on the database, and then responds it. End of the request.
+If there isn't such address or if it's more than a month old, scraps a fresh one from Correios website, saves on the database, and then responds it. End of the request.
 
 ## A careful hack
 
 * [Correios allows the whole site to be crawled by search bots](http://correios.com.br/robots.txt);
 * There is no device for impeding a *non-human* access (such as a CAPTCHA);
 * We don't bulk request (a single request here is a single request there);
-* We avoid requesting if possible (we only crawl month old records, else we just use our database).
+* We avoid requesting if possible (we only scrap month old records, else we just use our database).
 
