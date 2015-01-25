@@ -9,7 +9,8 @@
     "express": "^4.11.0",
     "mongodb": "^1.4.28",
     "morgan": "^1.5.1",
-    "sanitize-cep": "^1.0.0"
+    "sanitize-cep": "^1.0.0",
+    "unidades-federativas": "^1.0.0"
   },
   "description": "Brazil's CEP as a service",
   "devDependencies": {
