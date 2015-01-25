@@ -15,6 +15,10 @@ mongo.connect(function (err, db) {
   if (err) throw err
 
   function serveCep (req, res) {
+
+    // if there's an error with the secret header
+    if (badAuth(req, res)) return
+
     var cep = sanitizeCep(req.params.cep)
 
     // if the cep is malformed
@@ -22,9 +26,6 @@ mongo.connect(function (err, db) {
 
     // retrieving the given cep from the database
     mongo.retrieve(db, cep, function (err, endereco) {
-
-      // if there's an error with the secret header
-      if (badAuth(req, res)) return
 
       // if there's an error retrieving
       if (internalError(err, res)) return
