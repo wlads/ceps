@@ -222,38 +222,3 @@ describe('./lib/correios/crawler', function () {
   })
 })
 
-describe('./lib/correios/crawler', function () {
-  it('should raise an error if "respostadestaque" is more than the expected', function (done) {
-
-    // arrange
-    var html = '\
-<div class="caixacampobranco">\
-    <span class="resposta">Logradouro: </span>\
-    <span class="respostadestaque">\
-        Praça Sete de Setembro\
-        \
-    </span><br/>\
-    <span class="resposta">Bairro: </span><span class="respostadestaque">Centro</span><br/>\
-    <span class="resposta">Localidade / UF: </span>\
-    <span class="respostadestaque">\
-        Belo Horizonte\
-        \
-		/MG\
-        \
-    </span><br/>\
-    <span class="resposta">CEP: </span><span class="respostadestaque">30130010</span><br/>\
-    <span class="respostadestaque">extra info</span>\
-</div>'
-
-    // act
-    crawler(html, function (err, endereco) {
-
-      // assert
-      assert(err)
-      assert(!endereco)
-      done()
-    })
-
-  })
-})
-
