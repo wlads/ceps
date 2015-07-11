@@ -3,14 +3,14 @@
 var configuration   = require('../lib/configuration')
   , correiosCrawler = require('../lib/correios-crawler')
   , express         = require('express')
-  , mongo           = require('../lib/mongo')
+  , persistence     = require('../lib/persistence')
   , morgan          = require('morgan')
   , sanitizeCep     = require('sanitize-cep')
 
 // forcing environment variables check on start
 configuration.check()
 
-mongo.connect(function (err, db) {
+persistence.connect(function (err, mongo) {
   if (err) throw err
 
   function serveCep (req, res) {
@@ -24,7 +24,7 @@ mongo.connect(function (err, db) {
     if (badCep(cep, res)) return
 
     // retrieving the given cep from the database
-    mongo.retrieve(db, cep, function (err, endereco) {
+    persistence.retrieve(mongo, cep, function (err, endereco) {
 
       // if there's an error retrieving
       if (internalError(err, res)) return
@@ -42,7 +42,7 @@ mongo.connect(function (err, db) {
           if (notFound(endereco, res)) return
 
           // upserts
-          mongo.upsert(db, endereco, function (err) {
+          persistence.upsert(mongo, endereco, function (err) {
 
             // if there's an error upserting
             if (internalError(err, res)) return
