@@ -8,8 +8,7 @@ var configuration   = require('../lib/configuration')
   , sanitizeCep     = require('sanitize-cep')
 
 // forcing environment variables check on start
-configuration.connectionString()
-configuration.secret()
+configuration.check()
 
 mongo.connect(function (err, db) {
   if (err) throw err
