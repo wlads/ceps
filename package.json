@@ -33,7 +33,6 @@
     "correios"
   ],
   "license": "Fair",
-  "main": "bin/ceps.js",
   "name": "ceps",
   "preferGlobal": true,
   "repository": {

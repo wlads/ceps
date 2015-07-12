@@ -5,5 +5,8 @@ var configuration = require('../lib/configuration')
   , web           = require('../lib/web')
 
 configuration.check()
-persistence.connect(web)
+persistence.connect(function (err, mongo) {
+  if (err) throw err
+  web(mongo)
+})
 
