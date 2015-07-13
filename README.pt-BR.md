@@ -30,14 +30,14 @@ Só isso.
 Existem duas variáveis de ambiente a serem *setadas*:
 
 * `CEPS_CONNECTIONSTRING`: [uma string de conexão MongoDB](http://docs.mongodb.org/manual/reference/connection-string/);
-* `CEPS_SECRET`: uma string qualquer utiliza como senha.
+* `CEPS_AUTH`: credenciais no formato `user:pass`.
 
 Existe também uma variável opcional `PORT`. Assume `80` se nenhuma for especificada (pode precisar de [poderes de super vaca](http://pt.wikipedia.org/wiki/Superusu%C3%A1rio)).
 
 ## Fazendo a requisição
 
 O serviço espera um `GET` em `/{cep desejado}`.
-Você também tem que mandar um cabecalho `Secret` com a variável de ambiente mencionada acima.
+Você também tem que mandar [um cabecalho `Authorization`](https://en.wikipedia.org/wiki/Basic_access_authentication#Client_side) que case com a variável de ambiente mencionada acima.
 
 Por exemplo, um `GET` à `/30130010` retornaria:
 

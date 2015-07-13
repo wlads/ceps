@@ -32,14 +32,14 @@ That's it.
 There are two mandatory environment variables to set:
 
 * `CEPS_CONNECTIONSTRING`: [a MongoDB connection string](http://docs.mongodb.org/manual/reference/connection-string/);
-* `CEPS_SECRET`: an arbitrary string used as password.
+* `CEPS_AUTH`: authentication credentials in the format `user:pass`.
 
 There's an optional `PORT` var too. Assumes `80` if none is specified (may need [super cow powers](http://en.wikipedia.org/wiki/Superuser)).
 
 ## Requesting
 
 The service expects a `GET` request at `/{desired cep}`.
-You also have to send a `Secret` header with the secret env var mentioned above.
+You also have to send [an `Authorization` header](https://en.wikipedia.org/wiki/Basic_access_authentication#Client_side) that matches the auth env var mentioned above.
 
 For instance, a `GET` to `/30130010` may return:
 

@@ -14,6 +14,7 @@
   },
   "description": "Brazil's CEP as a service",
   "devDependencies": {
+    "basic-auth": "^1.0.3",
     "coveralls": "^2.11.2",
     "istanbul": "^0.3.5",
     "mocha": "^2.1.0"
