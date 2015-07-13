@@ -1,8 +1,8 @@
 var assert  = require('assert')
-  , crawler = require('../../lib/correios/crawler.js')
+  , scrap = require('../../lib/correios/scrap.js')
 
 describe('correios', function () {
-  describe('crawler', function () {
+  describe('scrap', function () {
 
     it('should raise an error if the HTML is empty', function (done) {
 
@@ -10,7 +10,7 @@ describe('correios', function () {
       var html = ''
 
       // act
-      crawler(html, function (err, endereco) {
+      scrap(html, function (err, endereco) {
 
         // assert
         assert(err)
@@ -42,7 +42,7 @@ describe('correios', function () {
   </div>'
 
       // act
-      crawler(html, function (err, endereco) {
+      scrap(html, function (err, endereco) {
 
         // assert
         assert(!err)
@@ -74,7 +74,7 @@ describe('correios', function () {
   </div>'
 
       // act
-      crawler(html, function (err, endereco) {
+      scrap(html, function (err, endereco) {
 
         // assert
         assert(err)
@@ -106,7 +106,7 @@ describe('correios', function () {
   </div>'
 
       // act
-      crawler(html, function (err, endereco) {
+      scrap(html, function (err, endereco) {
 
         // assert
         assert(err)
@@ -138,7 +138,7 @@ describe('correios', function () {
   </div>'
 
       // act
-      crawler(html, function (err, endereco) {
+      scrap(html, function (err, endereco) {
 
         // assert
         assert(err)
@@ -170,7 +170,7 @@ describe('correios', function () {
   </div>'
 
       // act
-      crawler(html, function (err, endereco) {
+      scrap(html, function (err, endereco) {
 
         // assert
         assert(err)
@@ -201,7 +201,7 @@ describe('correios', function () {
   </div>'
 
       // act
-      crawler(html, function (err, endereco) {
+      scrap(html, function (err, endereco) {
 
         // assert
         assert(err)
