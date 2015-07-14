@@ -9,16 +9,19 @@
     "cheerio": "^0.19.0",
     "envvar": "^1.0.0",
     "express": "^4.13.1",
+    "from-family": "^1.1.0",
     "mongodb": "^2.0.36",
     "morgan": "^1.6.1",
     "sanitize-cep": "^1.1.0",
+    "text": "git://github.com/requirejs/text",
     "unidades-federativas": "^1.0.0"
   },
   "description": "Brazil's CEP as a service",
   "devDependencies": {
     "coveralls": "^2.11.2",
     "istanbul": "^0.3.17",
-    "mocha": "^2.2.5"
+    "mocha": "^2.2.5",
+    "rfile": "^1.0.0"
   },
   "directories": {
     "lib": "./lib",
