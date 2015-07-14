@@ -5,17 +5,17 @@
     "url": "https://github.com/codigonosso/ceps/issues"
   },
   "dependencies": {
-    "cheerio": "^0.18.0",
+    "basic-auth": "^1.0.3",
+    "cheerio": "^0.19.0",
     "envvar": "^1.0.0",
     "express": "^4.13.1",
-    "mongodb": "^1.4.38",
+    "mongodb": "^2.0.36",
     "morgan": "^1.6.1",
     "sanitize-cep": "^1.1.0",
     "unidades-federativas": "^1.0.0"
   },
   "description": "Brazil's CEP as a service",
   "devDependencies": {
-    "basic-auth": "^1.0.3",
     "coveralls": "^2.11.2",
     "istanbul": "^0.3.17",
     "mocha": "^2.2.5"
