@@ -1,0 +1,20 @@
+{
+  "addons": [
+    "mongolab:sandbox"
+  ],
+  "description": "Brazil's CEP as service",
+  "keywords": [
+    "address",
+    "brasil",
+    "brazil",
+    "cep",
+    "correios",
+    "endereço",
+    "zip"
+  ],
+  "logo": "https://github.com/codigonosso/ceps/raw/master/asset/logo.png",
+  "name": "ceps",
+  "repository": "https://github.com/codigonosso/ceps",
+  "website": "https://github.com/codigonosso/ceps"
+}
+
