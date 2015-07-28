@@ -6,40 +6,65 @@
 
 # ceps
 
-[![build](https://travis-ci.org/codigonosso/ceps.png)](https://travis-ci.org/codigonosso/ceps)
-[![coverage](https://coveralls.io/repos/codigonosso/ceps/badge.png?branch=master)](https://coveralls.io/r/codigonosso/ceps?branch=master)
-[![dependencies](https://david-dm.org/codigonosso/ceps.png)](https://david-dm.org/codigonosso/ceps)
-[![devDependencies](https://david-dm.org/codigonosso/ceps/dev-status.png)](https://david-dm.org/codigonosso/ceps#info=devDependencies)
-[![npm module](https://badge.fury.io/js/ceps.png)](http://badge.fury.io/js/ceps)
+[![][build-img]][build]
+[![][coverage-img]][coverage]
+[![][dependencies-img]][dependencies]
+[![][devdependencies-img]][devdependencies]
+[![][module-img]][module]
 
-[![npm](https://nodei.co/npm/ceps.png?mini=true)](https://nodei.co/npm/ceps/)
+[![][npm-img]][npm]
 
-[Fala português?](/README.pt-BR.md)
+[Fala português?]
 
-A (web) service that exposes [Correios'](http://pt.wikipedia.org/wiki/Empresa_Brasileira_de_Correios_e_Tel%C3%A9grafos) individual [CEP](http://en.wikipedia.org/wiki/C%C3%B3digo_de_Endere%C3%A7amento_Postal) search page as a consumable API.
+A (web) service that exposes [Correios'] individual [CEP] search page as a consumable API.
 
-## *stack*
+It uses [cheerio] for scraping, [Express] for HTTP and [MongoDB] for database.
 
-[cheerio](https://github.com/cheeriojs/cheerio) for scraping, [Express](http://expressjs.com) for HTTP and [MongoDB](http://mongodb.org) for database.
+[build]:     https://travis-ci.org/codigonosso/ceps
+[build-img]: https://travis-ci.org/codigonosso/ceps.png
 
-## Running it
+[coverage]:     https://coveralls.io/r/codigonosso/ceps?branch=master
+[coverage-img]: https://coveralls.io/repos/codigonosso/ceps/badge.png?branch=master
 
-`npm install -g` it, configure a couple env vars (see below), and call it.
-That's it.
+[dependencies]:     https://david-dm.org/codigonosso/ceps
+[dependencies-img]: https://david-dm.org/codigonosso/ceps.png
 
-## Environment variables
+[devdependencies]:     https://david-dm.org/codigonosso/ceps#info=devDependencies
+[devdependencies-img]: https://david-dm.org/codigonosso/ceps/dev-status.png
 
-There are two mandatory environment variables to set:
+[module]:     http://badge.fury.io/js/ceps
+[module-img]: https://badge.fury.io/js/ceps.png
 
-* `CEPS_CONNECTIONSTRING`: [a MongoDB connection string](http://docs.mongodb.org/manual/reference/connection-string/);
-* `CEPS_AUTH`: authentication credentials in the format `user:pass`.
+[npm]:     https://nodei.co/npm/ceps
+[npm-img]: https://nodei.co/npm/ceps.png?mini=true
 
-There's an optional `PORT` var too. Assumes `80` if none is specified (may need [super cow powers](http://en.wikipedia.org/wiki/Superuser)).
+[Fala português?]: README.pt-BR.md
 
-## Requesting
+[Correios']: http://pt.wikipedia.org/wiki/Empresa_Brasileira_de_Correios_e_Tel%C3%A9grafos
+[CEP]:       http://en.wikipedia.org/wiki/C%C3%B3digo_de_Endere%C3%A7amento_Postal
+
+[cheerio]: https://github.com/cheeriojs/cheerio
+[Express]: http://expressjs.com
+[MongoDB]: http://mongodb.org
+
+## How it works
+
+When a request is made, the service retrieves from the database the address info of the given CEP.
+
+If the address exists in the database and if the record isn't a month old, responds it.
+End of the request.
+
+If there isn't such address or if it's more than a month old, scraps a fresh one from Correios website, saves on the database, and then responds it.
+End of the request.
+
+## Usage
+
+You can either `npm install ceps -g`, clone this repository and run `bin/de-busca.js` or deploy to Heroku:
+
+[![][heroku-img]][heroku]
 
 The service expects a `GET` request at `/{desired cep}`.
-You also have to send [an `Authorization` header](https://en.wikipedia.org/wiki/Basic_access_authentication#Client_side) that matches the auth env var mentioned above.
+You also have to send [an `Authorization` header] that matches the auth env var mentioned above.
 
 For instance, a `GET` to `/30130010` may return:
 
@@ -53,26 +78,40 @@ For instance, a `GET` to `/30130010` may return:
 }
 ```
 
-[400](http://en.wikipedia.org/wiki/List_of_HTTP_status_codes#400) means that the given CEP was malformed or that the required `Secret` header wasn't passed.
-[403](http://en.wikipedia.org/wiki/List_of_HTTP_status_codes#403) means that a wrong `Secret` was passed.
-[500](http://en.wikipedia.org/wiki/List_of_HTTP_status_codes#500) means that something bad happened at the server side.
+[heroku]:     https://heroku.com/deploy
+[heroku-img]: https://www.herokucdn.com/deploy/button.png
 
-And, of course, [200](http://en.wikipedia.org/wiki/List_of_HTTP_status_codes#200) if everything went smoothly.
-[204](http://en.wikipedia.org/wiki/List_of_HTTP_status_codes#204) if the request was OK but nothing was found for the given CEP.
+[400] means that the given CEP was malformed or that the required authorization wasn't provided.
+[403] means that a wrong authorization was provided.
+[500] means that something bad happened at the server.
 
-## How it works
+And, of course, [200] if everything went smoothly.
+[204] if the request was OK but nothing was found for the given CEP.
 
-When a request is made, the service retrieves from the database the address info of the given CEP.
+[an `Authorization` header]: https://en.wikipedia.org/wiki/Basic_access_authentication#Client_side
 
-If the address exists in the database and if the record isn't a month old, responds it.
-End of the request.
+[400]: http://en.wikipedia.org/wiki/List_of_HTTP_status_codes#400
+[403]: http://en.wikipedia.org/wiki/List_of_HTTP_status_codes#403
+[500]: http://en.wikipedia.org/wiki/List_of_HTTP_status_codes#500
 
-If there isn't such address or if it's more than a month old, scraps a fresh one from Correios website, saves on the database, and then responds it. End of the request.
+[200]: http://en.wikipedia.org/wiki/List_of_HTTP_status_codes#200
+[204]: http://en.wikipedia.org/wiki/List_of_HTTP_status_codes#204
+
+## Configuration
+
+There are two environment variables to set:
+
+* `CEPS_CONNECTIONSTRING`: [a MongoDB connection string] (mandatory);
+* `CEPS_AUTH`: authentication credentials in the format `user:pass` (optional, serves unauthenticated requests normally if not configured);
+* `PORT`: port to listen on (optional, assumes 80).
+
+[a MongoDB connection string]: http://docs.mongodb.org/manual/reference/connection-string
 
 ## A careful hack
 
-* [Correios allows the whole site to be crawled by search bots](http://correios.com.br/robots.txt);
+* [Correios allows the whole site to be crawled by search bots][robots];
 * There is no device for impeding a *non-human* access (such as a CAPTCHA);
 * We don't bulk request (a single request here is a single request there);
 * We avoid requesting if possible (we only scrap month old records, else we just use our database).
 
+[robots]: http://correios.com.br/robots.txt
