@@ -5,13 +5,13 @@ describe('correios', function () {
   describe('index', function () {
 
     it('should request and crawl correctly', function (done) {
-      correios('08527050', function (err, endereco) {
+      correios('01001001', function (err, endereco) {
 
         assert.ifError(err)
-        assert.equal(endereco.cep,        '08527050')
-        assert.equal(endereco.logradouro, 'Rua Mickey')
-        assert.equal(endereco.bairro,     'Parque Dourado')
-        assert.equal(endereco.localidade, 'Ferraz de Vasconcelos')
+        assert.equal(endereco.cep,        '01001001')
+        assert.equal(endereco.logradouro, 'Praça da Sé - lado par')
+        assert.equal(endereco.bairro,     'Sé')
+        assert.equal(endereco.localidade, 'São Paulo')
         assert.equal(endereco.uf,         'SP')
 
         done()
