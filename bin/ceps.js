@@ -8,7 +8,7 @@ var config      = require('../lib/config')
 if (config.cs) {
 
   // connect to mongo
-  persistence.connect(function (err, mongo) {
+  persistence.connect(config.cs, function (err, mongo) {
 
     // and then starts the webserver
     if (err) throw err

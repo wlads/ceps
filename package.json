@@ -9,10 +9,12 @@
     "cheerio": "^0.19.0",
     "envvar": "^1.0.0",
     "express": "^4.13.1",
+    "format-unicorn": "^1.1.0",
     "from-family": "^1.1.0",
     "iconv-lite": "^0.4.11",
     "mongodb": "^2.0.36",
     "morgan": "^1.6.1",
+    "rfile": "^1.0.0",
     "sanitize-cep": "^1.1.0",
     "text": "git://github.com/requirejs/text",
     "unidades-federativas": "^1.0.0"
