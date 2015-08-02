@@ -57,7 +57,6 @@ Você pode tanto `npm install ceps -g`, clonar este repositório e executar `bin
 [![][heroku-img]][heroku]
 
 O serviço espera um `GET` em `/{cep desejado}`.
-Você também tem que mandar [um cabecalho `Authorization`] que case com a variável de ambiente mencionada acima.
 
 Por exemplo, um `GET` à `/30130010` retornaria:
 
@@ -78,8 +77,6 @@ Por exemplo, um `GET` à `/30130010` retornaria:
 E, claro, [200] que tudo foi como esperado.
 [204] se a requisição foi OK mas nenhum endereço foi encontrado para o CEP.
 
-[um cabecalho `Authorization`]: https://en.wikipedia.org/wiki/Basic_access_authentication#Client_side
-
 [heroku]:     https://heroku.com/deploy
 [heroku-img]: https://www.herokucdn.com/deploy/button.png
 
@@ -95,10 +92,11 @@ E, claro, [200] que tudo foi como esperado.
 Existem duas variáveis de ambiente a serem configuradas:
 
 * `CEPS_CONNECTIONSTRING`: [uma string de conexão MongoDB];
-* `CEPS_AUTH`: credenciais no formato `user:pass` (opcional, serve as requisições sem autenticação normalmente se não configurado);
+* `CEPS_AUTH`: credenciais [basic authentication] no formato `user:pass`;
 * `PORT`: porta a escutar (opcional, assume 80).
 
 [uma string de conexão MongoDB]: http://docs.mongodb.org/manual/reference/connection-string
+[basic authentication]: https://en.wikipedia.org/wiki/Basic_access_authentication#Client_side
 
 ## Um *hack* cuidadoso
 

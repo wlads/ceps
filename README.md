@@ -64,7 +64,6 @@ You can either `npm install ceps -g`, clone this repository and run `bin/de-busc
 [![][heroku-img]][heroku]
 
 The service expects a `GET` request at `/{desired cep}`.
-You also have to send [an `Authorization` header] that matches the auth env var mentioned above.
 
 For instance, a `GET` to `/30130010` may return:
 
@@ -88,7 +87,6 @@ For instance, a `GET` to `/30130010` may return:
 And, of course, [200] if everything went smoothly.
 [204] if the request was OK but nothing was found for the given CEP.
 
-[an `Authorization` header]: https://en.wikipedia.org/wiki/Basic_access_authentication#Client_side
 
 [400]: http://en.wikipedia.org/wiki/List_of_HTTP_status_codes#400
 [403]: http://en.wikipedia.org/wiki/List_of_HTTP_status_codes#403
@@ -101,11 +99,12 @@ And, of course, [200] if everything went smoothly.
 
 There are two environment variables to set:
 
-* `CEPS_CONNECTIONSTRING`: [a MongoDB connection string] (mandatory);
-* `CEPS_AUTH`: authentication credentials in the format `user:pass` (optional, serves unauthenticated requests normally if not configured);
+* `CEPS_CONNECTIONSTRING`: [a MongoDB connection string];
+* `CEPS_AUTH`: [basic authentication] credentials in the format `user:pass`;
 * `PORT`: port to listen on (optional, assumes 80).
 
 [a MongoDB connection string]: http://docs.mongodb.org/manual/reference/connection-string
+[basic authentication]: https://en.wikipedia.org/wiki/Basic_access_authentication
 
 ## A careful hack
 
@@ -115,3 +114,4 @@ There are two environment variables to set:
 * We avoid requesting if possible (we only scrap month old records, else we just use our database).
 
 [robots]: http://correios.com.br/robots.txt
+
