@@ -23,8 +23,7 @@
   "devDependencies": {
     "coveralls": "^2.11.2",
     "istanbul": "^0.3.17",
-    "mocha": "^2.2.5",
-    "rfile": "^1.0.0"
+    "mocha": "^2.2.5"
   },
   "directories": {
     "lib": "./lib",
