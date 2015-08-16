@@ -99,8 +99,8 @@ And, of course, [200] if everything went smoothly.
 
 There are two environment variables to set:
 
-* `CEPS_CONNECTIONSTRING`: [a MongoDB connection string];
-* `CEPS_AUTH`: [basic authentication] credentials in the format `user:pass`;
+* `MONGO`: [a MongoDB connection string];
+* `AUTH`: [basic authentication] credentials in the format `user:pass`;
 * `PORT`: port to listen on (optional, assumes 80).
 
 [a MongoDB connection string]: http://docs.mongodb.org/manual/reference/connection-string

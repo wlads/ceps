@@ -5,10 +5,10 @@ var config      = require('../lib/config')
   , web         = require('../lib/web')
 
 // if there's a connection string set
-if (config.cs) {
+if (config.mongo) {
 
   // connect to mongo
-  persistence.connect(config.cs, function (err, mongo) {
+  persistence.connect(config.mongo, function (err, mongo) {
 
     // and then starts the webserver
     if (err) throw err

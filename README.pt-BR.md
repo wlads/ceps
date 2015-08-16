@@ -91,8 +91,8 @@ E, claro, [200] que tudo foi como esperado.
 
 Existem duas variáveis de ambiente a serem configuradas:
 
-* `CEPS_CONNECTIONSTRING`: [uma string de conexão MongoDB];
-* `CEPS_AUTH`: credenciais [basic authentication] no formato `user:pass`;
+* `MONGO`: [uma string de conexão MongoDB];
+* `AUTH`: credenciais [basic authentication] no formato `user:pass`;
 * `PORT`: porta a escutar (opcional, assume 80).
 
 [uma string de conexão MongoDB]: http://docs.mongodb.org/manual/reference/connection-string
