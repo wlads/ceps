@@ -77,6 +77,12 @@ Por exemplo, um `GET` à `/30130010` retornaria:
 E, claro, [200] que tudo foi como esperado.
 [204] se a requisição foi OK mas nenhum endereço foi encontrado para o CEP.
 
+Aqui vai como fazer a requisição através de seu terminal:
+
+```sh
+$ curl example.org/30130010 -i -u "username:password"
+```
+
 [heroku]:     https://heroku.com/deploy
 [heroku-img]: https://www.herokucdn.com/deploy/button.png
 

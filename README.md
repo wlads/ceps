@@ -87,6 +87,11 @@ For instance, a `GET` to `/30130010` may return:
 And, of course, [200] if everything went smoothly.
 [204] if the request was OK but nothing was found for the given CEP.
 
+Here's how to request from the cli:
+
+```sh
+$ curl example.org/30130010 -i -u "username:password"
+```
 
 [400]: http://en.wikipedia.org/wiki/List_of_HTTP_status_codes#400
 [403]: http://en.wikipedia.org/wiki/List_of_HTTP_status_codes#403
